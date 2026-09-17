@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TripGineer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        Trip<span>Gineer</span>
+    </a>
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="search.html">
+            Search
+        </a>
+
+    </nav>
+
+</header>
+
+
+<main id="placePage">
+
+
+    <section class="place-hero">
+
+        <img
+            id="placeImage"
+            src=""
+            alt=""
+        >
+
+
+        <div class="hero-overlay"></div>
+
+
+        <div class="place-hero-content">
+
+            <span id="placeCategory"></span>
+
+            <h1 id="placeName">
+                Loading...
+            </h1>
+
+            <p id="placeLocation"></p>
+
+        </div>
+
+    </section>
+
+
+    <section class="place-details">
+
+
+        <div class="main-info">
+
+            <span class="eyebrow">
+                DISCOVER
+            </span>
+
+            <h2 id="placeHeading"></h2>
+
+            <p id="placeDescription"></p>
+
+
+            <div class="info-grid">
+
+                <div class="info-box">
+
+                    <span>⭐</span>
+
+                    <strong>
+                        Rating
+                    </strong>
+
+                    <p id="placeRating"></p>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>🕐</span>
+
+                    <strong>
+                        Best Time
+                    </strong>
+
+                    <p id="placeBestTime"></p>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <span>📍</span>
+
+                    <strong>
+                        Location
+                    </strong>
+
+                    <p id="placeLocation2"></p>
+
+                </div>
+
+            </div>
+
+
+            <a
+                id="mapButton"
+                class="map-button"
+                target="_blank"
+            >
+                📍 Open in Google Maps
+            </a>
+
+        </div>
+
+
+        <aside class="place-sidebar">
+
+            <h3>
+                Plan Your Visit
+            </h3>
+
+            <p>
+                Explore this destination and discover
+                more places around Chattogram.
+            </p>
+
+
+            <a
+                id="categoryButton"
+                class="outline-button"
+            >
+                Explore Similar Places
+            </a>
+
+        </aside>
+
+
+    </section>
+
+
+    <section class="related-section">
+
+        <div class="section-heading">
+
+            <span>
+                KEEP EXPLORING
+            </span>
+
+            <h2>
+                You may also like
+            </h2>
+
+        </div>
+
+
+        <div
+            id="relatedPlaces"
+            class="places-grid"
+        ></div>
+
+    </section>
+
+
+</main>
+
+
+<script src="data.js"></script>
+
+<script>
+
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
+
+const placeId =
+    params.get("id");
+
+
+const place =
+    destinations.find(
+        item => item.id === placeId
+    );
+
+
+if (!place) {
+
+    document.getElementById("placePage")
+        .innerHTML = `
+            <div class="not-found">
+                <h1>Destination not found</h1>
+                <a href="search.html">
+                    Back to Search
+                </a>
+            </div>
+        `;
+
+} else {
+
+
+    document.title =
+        `${place.name} | TripGineer`;
+
+
+    document.getElementById("placeImage")
+        .src = place.image;
+
+
+    document.getElementById("placeImage")
+        .alt = place.name;
+
+
+    document.getElementById("placeCategory")
+        .textContent = place.categoryName;
+
+
+    document.getElementById("placeName")
+        .textContent = place.name;
+
+
+    document.getElementById("placeHeading")
+        .textContent = place.name;
+
+
+    document.getElementById("placeLocation")
+        .textContent =
+        `📍 ${place.location}`;
+
+
+    document.getElementById("placeLocation2")
+        .textContent =
+        place.location;
+
+
+    document.getElementById("placeDescription")
+        .textContent =
+        place.description;
+
+
+    document.getElementById("placeRating")
+        .textContent =
+        `${place.rating} / 5`;
+
+
+    document.getElementById("placeBestTime")
+        .textContent =
+        place.bestTime;
+
+
+    document.getElementById("mapButton")
+        .href =
+        `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.name + " " + place.location)}`;
+
+
+    document.getElementById("categoryButton")
+        .href =
+        `category.html?category=${place.category}`;
+
+
+    // Related places
+
+    const related =
+        destinations
+        .filter(item =>
+            item.category === place.category &&
+            item.id !== place.id
+        )
+        .slice(0, 3);
+
+
+    const relatedContainer =
+        document.getElementById("relatedPlaces");
+
+
+    related.forEach(item => {
+
+        const card =
+            document.createElement("a");
+
+        card.href =
+            `place.html?id=${item.id}`;
+
+        card.className =
+            "place-card";
+
+
+        card.innerHTML = `
+
+            <div class="place-image">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                    loading="lazy"
+                >
+
+                <span class="place-rating">
+                    ★ ${item.rating}
+                </span>
+
+            </div>
+
+
+            <div class="place-content">
+
+                <span class="place-category">
+                    ${item.categoryName}
+                </span>
+
+                <h3>
+                    ${item.name}
+                </h3>
+
+                <p>
+                    📍 ${item.location}
+                </p>
+
+            </div>
+
+        `;
+
+
+        relatedContainer.appendChild(card);
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
