@@ -1,82 +1,613 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Chittagong Travel Guide</title>
+    <title>TripGineer | Explore Chattogram</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
+    <!-- ================= NAVBAR ================= -->
 
-        <h1>Explore Chittagong 🌊</h1>
+    <header class="navbar">
 
-        <p>
-            Discover places, hotels, food and experiences
-        </p>
+        <div class="nav-container">
 
-        <div class="search-box">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">✈</span>
+                <span>Trip<span>Gineer</span></span>
+            </a>
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search places, hotels, food, nature..."
-            >
+            <nav class="nav-links">
 
-            <button onclick="searchTravel()">
-                Search
-            </button>
+                <a href="index.html" class="active">
+                    Home
+                </a>
+
+                <a href="search.html">
+                    Search Destinations
+                </a>
+
+                <a href="category.html?category=beaches">
+                    Explore
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+            </nav>
+
+            <a href="search.html" class="nav-button">
+                Explore Chattogram
+            </a>
 
         </div>
 
     </header>
 
 
+    <!-- ================= HERO ================= -->
+
     <main>
 
-        <h2>Explore by Category</h2>
+        <section class="hero">
 
-        <div class="categories">
+            <div class="hero-overlay"></div>
 
-            <button onclick="filterCategory('Tourist Place')">
-                🏝 Tourist Places
-            </button>
+            <div class="hero-content">
 
-            <button onclick="filterCategory('Hotel')">
-                🏨 Hotels
-            </button>
+                <span class="hero-small-title">
+                    DISCOVER CHATTAGRAM
+                </span>
 
-            <button onclick="filterCategory('Restaurant')">
-                🍽 Restaurants
-            </button>
+                <h1>
+                    Your Journey<br>
+                    Begins <span>Here.</span>
+                </h1>
 
-            <button onclick="filterCategory('Nature')">
-                🌿 Nature
-            </button>
-
-            <button onclick="showAll()">
-                🌍 Show All
-            </button>
-
-        </div>
+                <p>
+                    Discover the hidden beauty, beaches,
+                    hills, waterfalls, heritage and culture
+                    of Chattogram.
+                </p>
 
 
-        <div id="results"></div>
+                <!-- SEARCH -->
+
+                <div class="home-search">
+
+                    <div class="search-icon">
+                        🔍
+                    </div>
+
+                    <input
+                        type="text"
+                        id="homeSearchInput"
+                        placeholder="Search destinations..."
+                        autocomplete="off"
+                    >
+
+                    <button id="homeSearchBtn">
+                        Search
+                    </button>
+
+                    <div
+                        id="homeSuggestions"
+                        class="suggestions home-suggestions">
+                    </div>
+
+                </div>
+
+
+                <div class="hero-note">
+                    <span>✦</span>
+                    Explore places worth remembering
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CATEGORIES ================= -->
+
+        <section class="categories-section">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    EXPLORE BY CATEGORY
+                </span>
+
+                <h2>
+                    Find Your Perfect Escape
+                </h2>
+
+                <p>
+                    From peaceful beaches to green hills,
+                    discover different sides of Chattogram.
+                </p>
+
+            </div>
+
+
+            <div
+                class="category-grid"
+                id="homeCategoryGrid">
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= FEATURED PLACES ================= -->
+
+        <section class="featured-section">
+
+            <div class="section-heading">
+
+                <span class="section-label">
+                    PLACES TO VISIT
+                </span>
+
+                <h2>
+                    Explore Chattogram
+                </h2>
+
+                <p>
+                    Discover some of the beautiful places
+                    waiting for you.
+                </p>
+
+            </div>
+
+
+            <div
+                class="place-grid"
+                id="featuredPlaces">
+            </div>
+
+
+            <div class="view-all-wrapper">
+
+                <a
+                    href="search.html"
+                    class="primary-btn">
+
+                    Explore All Destinations
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section
+            class="about-section"
+            id="about">
+
+            <div class="about-image">
+
+                <div class="about-image-overlay"></div>
+
+                <div class="about-image-text">
+
+                    <span>
+                        TRAVEL • EXPLORE • DISCOVER
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <span class="section-label">
+                    ABOUT TRIPGINEER
+                </span>
+
+                <h2>
+                    Discover the beauty of Chattogram
+                </h2>
+
+                <p>
+                    TripGineer is a travel discovery platform
+                    designed to help you explore the beautiful
+                    destinations of Chattogram.
+                </p>
+
+                <p>
+                    Find beaches, waterfalls, hills, lakes,
+                    islands, heritage sites, parks and
+                    religious places all in one place.
+                </p>
+
+                <a
+                    href="search.html"
+                    class="primary-btn">
+
+                    Start Exploring
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="cta-section">
+
+            <div class="cta-content">
+
+                <span>
+                    READY FOR YOUR NEXT ADVENTURE?
+                </span>
+
+                <h2>
+                    Let's explore Chattogram.
+                </h2>
+
+                <p>
+                    Find your next destination and start
+                    planning your journey.
+                </p>
+
+                <a
+                    href="search.html"
+                    class="cta-button">
+
+                    Explore Destinations
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </section>
 
     </main>
 
 
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <a
+                    href="index.html"
+                    class="logo">
+
+                    <span class="logo-icon">✈</span>
+
+                    <span>
+                        Trip<span>Gineer</span>
+                    </span>
+
+                </a>
+
+                <p>
+                    Discover the beauty of Chattogram,
+                    one destination at a time.
+                </p>
+
+            </div>
+
+
+
+            <!-- EXPLORE -->
+
+            <div class="footer-links">
+
+                <h4>
+                    Explore
+                </h4>
+
+                <a href="search.html">
+                    Destinations
+                </a>
+
+                <a href="category.html?category=beaches">
+                    Beaches
+                </a>
+
+                <a href="category.html?category=waterfalls">
+                    Waterfalls
+                </a>
+
+                <a href="category.html?category=hills">
+                    Hills & Mountains
+                </a>
+
+            </div>
+
+
+
+            <!-- DISCOVER -->
+
+            <div class="footer-links">
+
+                <h4>
+                    Discover
+                </h4>
+
+                <a href="category.html?category=lakes">
+                    Lakes & Rivers
+                </a>
+
+                <a href="category.html?category=islands">
+                    Islands
+                </a>
+
+                <a href="category.html?category=heritage">
+                    Heritage
+                </a>
+
+                <a href="category.html?category=parks">
+                    Parks & Nature
+                </a>
+
+            </div>
+
+
+
+            <!-- TRIPGINEER -->
+
+            <div class="footer-links">
+
+                <h4>
+                    TripGineer
+                </h4>
+
+                <a href="#about">
+                    About Us
+                </a>
+
+                <a href="search.html">
+                    Plan Your Trip
+                </a>
+
+                <a href="search.html">
+                    Search
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 TripGineer. Explore Chattogram.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= DATA ================= -->
+
     <script src="data.js"></script>
-    <script src="script.js"></script>
 
-</body>
 
-</html>
+    <!-- ================= HOME PAGE JS ================= -->
+
+    <script>
+
+        /* ==========================================
+           ELEMENTS
+        ========================================== */
+
+        const searchInput =
+            document.getElementById("homeSearchInput");
+
+        const searchButton =
+            document.getElementById("homeSearchBtn");
+
+        const suggestions =
+            document.getElementById("homeSuggestions");
+
+        const categoryGrid =
+            document.getElementById("homeCategoryGrid");
+
+        const featuredPlaces =
+            document.getElementById("featuredPlaces");
+
+
+
+        /* ==========================================
+           SEARCH SUGGESTIONS
+        ========================================== */
+
+        searchInput.addEventListener(
+            "input",
+            function () {
+
+                const value =
+                    this.value.trim().toLowerCase();
+
+                suggestions.innerHTML = "";
+
+
+                if (!value) {
+
+                    suggestions.style.display =
+                        "none";
+
+                    return;
+
+                }
+
+
+                /* Matching categories */
+
+                const matchingCategories =
+                    categories.filter(category => {
+
+                        return (
+                            category.name
+                                .toLowerCase()
+                                .includes(value)
+
+                            ||
+
+                            category.id
+                                .toLowerCase()
+                                .includes(value)
+                        );
+
+                    });
+
+
+                /* Matching places */
+
+                const matchingPlaces =
+                    destinations.filter(place => {
+
+                        return (
+
+                            place.name
+                                .toLowerCase()
+                                .includes(value)
+
+                            ||
+
+                            place.categoryName
+                                .toLowerCase()
+                                .includes(value)
+
+                            ||
+
+                            place.location
+                                .toLowerCase()
+                                .includes(value)
+
+                            ||
+
+                            place.tags.some(tag =>
+                                tag
+                                    .toLowerCase()
+                                    .includes(value)
+                            )
+
+                        );
+
+                    }).slice(0, 7);
+
+
+
+                /* No result */
+
+                if (
+                    matchingCategories.length === 0 &&
+                    matchingPlaces.length === 0
+                ) {
+
+                    suggestions.innerHTML = `
+
+                        <div class="no-suggestion">
+                            No destinations found
+                        </div>
+
+                    `;
+
+                    suggestions.style.display =
+                        "block";
+
+                    return;
+
+                }
+
+
+
+                /* ==================================
+                   CATEGORY SUGGESTIONS
+                ================================== */
+
+                matchingCategories.forEach(
+                    category => {
+
+                        const item =
+                            document.createElement("div");
+
+                        item.className =
+                            "suggestion-item";
+
+
+                        item.innerHTML = `
+
+                            <div class="suggestion-icon">
+                                ${category.icon}
+                            </div>
+
+                            <div class="suggestion-text">
+
+                                <strong>
+                                    ${category.name}
+                                </strong>
+
+                                <small>
+                                    Category
+                                </small>
+
+                            </div>
+
+                        `;
+
+
+                        item.addEventListener(
+                            "click",
+                            function () {
+
+                                window.location.href =
+                                    `category.html?category=${category.id}`;
+
+                            }
+                        );
+
+
+                        suggestions.appendChild(item);
+
+                    }
+                );
+
+
+
+                /* ==================================
+                   PLA
 
 
 
