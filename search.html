@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Search Destinations | TripGineer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        Trip<span>Gineer</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="category.html?category=beaches">Explore</a>
+        <a href="search.html" class="active">Search</a>
+    </nav>
+
+</header>
+
+
+<main class="search-page">
+
+    <div class="search-hero">
+
+        <span class="eyebrow">
+            EXPLORE CHATTOGRAM
+        </span>
+
+        <h1>
+            Where do you want<br>
+            to <span>go?</span>
+        </h1>
+
+        <p>
+            Search destinations, categories and places
+            around Chattogram.
+        </p>
+
+
+        <div class="search-wrapper">
+
+            <div class="search-box">
+
+                <span class="search-icon">⌕</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search Patenga, Foy's Lake, Beach..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <div
+                id="suggestions"
+                class="suggestions"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <section class="category-section">
+
+        <div class="section-heading">
+
+            <span>DISCOVER</span>
+
+            <h2>
+                Explore by Category
+            </h2>
+
+        </div>
+
+
+        <div class="category-grid">
+
+            <a
+                href="category.html?category=beaches"
+                class="category-card"
+            >
+                <span>🏖️</span>
+                <h3>Beaches</h3>
+            </a>
+
+            <a
+                href="category.html?category=waterfalls"
+                class="category-card"
+            >
+                <span>💦</span>
+                <h3>Waterfalls</h3>
+            </a>
+
+            <a
+                href="category.html?category=hills"
+                class="category-card"
+            >
+                <span>⛰️</span>
+                <h3>Hills & Mountains</h3>
+            </a>
+
+            <a
+                href="category.html?category=lakes"
+                class="category-card"
+            >
+                <span>🌊</span>
+                <h3>Lakes & Rivers</h3>
+            </a>
+
+            <a
+                href="category.html?category=islands"
+                class="category-card"
+            >
+                <span>🏝️</span>
+                <h3>Islands</h3>
+            </a>
+
+            <a
+                href="category.html?category=heritage"
+                class="category-card"
+            >
+                <span>🏛️</span>
+                <h3>Heritage</h3>
+            </a>
+
+            <a
+                href="category.html?category=parks"
+                class="category-card"
+            >
+                <span>🌿</span>
+                <h3>Parks & Nature</h3>
+            </a>
+
+            <a
+                href="category.html?category=religious"
+                class="category-card"
+            >
+                <span>🕌</span>
+                <h3>Religious Places</h3>
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
