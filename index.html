@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chittagong Travel Guide</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Explore Chittagong 🌊</h1>
+
+        <p>
+            Discover places, hotels, food and experiences
+        </p>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search places, hotels, food, nature..."
+            >
+
+            <button onclick="searchTravel()">
+                Search
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <h2>Explore by Category</h2>
+
+        <div class="categories">
+
+            <button onclick="filterCategory('Tourist Place')">
+                🏝 Tourist Places
+            </button>
+
+            <button onclick="filterCategory('Hotel')">
+                🏨 Hotels
+            </button>
+
+            <button onclick="filterCategory('Restaurant')">
+                🍽 Restaurants
+            </button>
+
+            <button onclick="filterCategory('Nature')">
+                🌿 Nature
+            </button>
+
+            <button onclick="showAll()">
+                🌍 Show All
+            </button>
+
+        </div>
+
+
+        <div id="results"></div>
+
+    </main>
+
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
+
+
+
