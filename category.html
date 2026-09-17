@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>TripGineer | Category</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+<header class="navbar">
+
+    <a href="index.html" class="logo">
+        Trip<span>Gineer</span>
+    </a>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="search.html">Search</a>
+    </nav>
+
+</header>
+
+
+<main class="category-page">
+
+    <section class="category-hero">
+
+        <span id="categoryIcon"></span>
+
+        <h1 id="categoryTitle">
+            Explore
+        </h1>
+
+        <p id="categoryDescription"></p>
+
+    </section>
+
+
+    <section class="places-section">
+
+        <div
+            id="placesGrid"
+            class="places-grid"
+        ></div>
+
+    </section>
+
+</main>
+
+
+<script src="data.js"></script>
+
+<script>
+
+const params =
+    new URLSearchParams(window.location.search);
+
+const categoryId =
+    params.get("category");
+
+const category =
+    categories.find(c => c.id === categoryId);
+
+
+if (category) {
+
+    document.title =
+        `${category.name} | TripGineer`;
+
+    document.getElementById("categoryIcon")
+        .textContent = category.icon;
+
+    document.getElementById("categoryTitle")
+        .textContent = category.name;
+
+    document.getElementById("categoryDescription")
+        .textContent = category.description;
+
+}
+
+
+const places =
+    destinations.filter(place =>
+        place.category === categoryId
+    );
+
+
+const grid =
+    document.getElementById("placesGrid");
+
+
+places.forEach((place, index) => {
+
+    const card =
+        document.createElement("a");
+
+    card.href =
+        `place.html?id=${place.id}`;
+
+    card.className =
+        "place-card";
+
+    card.style.animationDelay =
+        `${index * 0.08}s`;
+
+    card.innerHTML = `
+
+        <div class="place-image">
+
+            <img
+                src="${place.image}"
+                alt="${place.name}"
+                loading="lazy"
+            >
+
+            <span class="place-rating">
+                ★ ${place.rating}
+            </span>
+
+        </div>
+
+
+        <div class="place-content">
+
+            <span class="place-category">
+                ${place.categoryName}
+            </span>
+
+            <h3>
+                ${place.name}
+            </h3>
+
+            <p>
+                📍 ${place.location}
+            </p>
+
+        </div>
+
+    `;
+
+    grid.appendChild(card);
+
+});
+
+</script>
+
+</body>
+</html>
